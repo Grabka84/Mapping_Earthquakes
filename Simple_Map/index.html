@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin=""/>
-    
+
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
@@ -18,53 +18,16 @@
     
     <!-- The div that holds the map -->
     <div id="map" class="leaflet-container">
-        <script>
-            var map = L.map('map').setView([51.505, -0.09], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© OpenStreetMap'
-            }).addTo(map);
-
-            var marker = L.marker([51.5, -0.09]).addTo(map);
-
-            var circle = L.circle([51.508, -0.11], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.5,
-                radius: 500
-            }).addTo(map);
-
-            var polygon = L.polygon([
-                [51.509, -0.08],
-                [51.503, -0.06],
-                [51.51, -0.047]
-            ]).addTo(map);
-
-            marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-            circle.bindPopup("I am a circle.");
-            polygon.bindPopup("I am a polygon.");
-
-            var popup = L.popup()
-            .setLatLng([51.513,-0.09])
-            .setContent('I am a popup!')
-            .openOn(map);
-
-            function onMapClick(e) {
-                popup
-                    .setLatLng(e.latlng)
-                    .setContent("You clicked the map at " + e.latlng.toString())
-                    .openOn(map);
-            }
-
-            map.on('click', onMapClick);
-        </script>
+        
     </div>
     
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
-
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/logic.js"></script>
 </body>
 </html>
